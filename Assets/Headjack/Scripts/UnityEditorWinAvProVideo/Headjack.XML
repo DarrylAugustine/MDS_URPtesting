@@ -1,0 +1,2839 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Headjack</name>
+    </assembly>
+    <members>
+        <member name="T:Headjack.AVProVideoSpatialAudioOutput">
+            <summary>
+            This is an experimental feature and only works in Windows currently
+            Audio is grabbed from the MediaPlayer and rendered via Unity
+            This allows audio to have 3D spatial control, effects applied and to be spatialised for VR
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Headjack.Analytics.ResendCached" -->
+        <member name="M:Headjack.AndroidDownloader.GetActiveJob(System.String)">
+            <summary>
+            returns Job Info if job associated with Media ID is active,
+            otherwise returns null
+            </summary>
+        </member>
+        <member name="M:Headjack.AndroidDownloader.GetApplicationContext(UnityEngine.AndroidJavaObject)">
+            Returns the application context of the current Android Activity.
+        </member>
+        <member name="M:Headjack.AndroidDownloader.GetActivity">
+            Returns the Android Activity used by the Unity device player. The caller is
+            responsible for memory-managing the returned AndroidJavaObject.
+        </member>
+        <member name="T:Headjack.App">
+            <summary>
+            This static class is the starting point for all the functionality of the Headjack SDK
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VrMode">
+            <summary>
+            false if on Cardboard and VrMode is not active
+            </summary>
+        </member>
+        <member name="M:Headjack.App.CodecPriority(System.String)">
+            <summary>
+            false if on Cardboard and VrMode is not active
+            </summary>
+        </member>
+        <member name="F:Headjack.App.OculusMenu">
+            <summary>
+            GearVR's oculus platform menu
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Host">
+            <summary>
+            Url to server base
+            </summary>
+        </member>
+        <member name="F:Headjack.App.BasePath">
+            <summary>
+            Filepath to local folders
+            </summary>
+        </member>
+        <member name="F:Headjack.App.PopUp">
+            <summary>
+            Message object instance
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CurrentlyLoadedPlatform">
+            <summary>
+            Returns the currently loaded platform, the name says it all
+            </summary>
+        </member>
+        <member name="F:Headjack.App.cinemaSupported">
+            <summary>
+            true if Cinema feature is supported and allowed
+            </summary>
+        </member>
+        <member name="F:Headjack.App.AppId">
+            <summary>
+            App ID
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Authkey">
+            <summary>
+            Auth key
+            </summary>
+        </member>
+        <member name="F:Headjack.App.AnalyticsManager">
+            <summary>
+            Analytics Object
+            </summary>
+        </member>
+        <member name="F:Headjack.App.DataObject">
+            <summary>
+            Data Object
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VRCamera">
+            <summary>
+            Reference to top-level VR Camera gameobject
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Videosphere">
+            <summary>
+            The Mesh for the video player
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Downloader">
+            <summary>
+            The download manager
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Data">
+            <summary>
+            json data
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CurrentTrackingOrigin">
+            <summary>
+            The currently selected tracking origin (e.g. floor level or eye level)
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetSubtitleFilename(System.String,System.String)">
+            <summary>
+            Return the url of the SRT file of given video and given language
+            </summary>
+        </member>
+        <member name="M:Headjack.App.VideoGetSubtitles(System.String)">
+            <summary>
+            returns a list of all subtitles from given video id
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetMediaUrl(System.String)">
+            <summary>
+            Url for media file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetMediaPath(System.String)">
+            <summary>
+            Local path for media file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetVideoStream(System.String,Headjack.AppData.FormatBlock)">
+            <summary>
+            stream url for video file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetVideoPath(System.String)">
+            <summary>
+            Local path for video file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetVideoUrl(System.String)">
+            <summary>
+            Url for video file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetVideoSize(System.String)">
+            <summary>
+            Size for video file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetJsonUrl(System.String,System.Boolean)">
+            <summary>
+            Url for json file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetJsonPath(System.String)">
+            <summary>
+            Local path for json file "Id"
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GotVideoFile(System.String)">
+            <summary>
+            Check if a Video file is already downloaded
+            </summary>
+        </member>
+        <member name="M:Headjack.App.UpdateAvailableVideo(System.String)">
+            <summary>
+            Check if an update is available for video with given id
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetProjectVideoIdList(System.String)">
+            <summary>
+            Returns a string[] of all videos in a project
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetProjectMediaIdList(System.String)">
+            <summary>
+            Returns a string[] of all media in a project
+            </summary>
+        </member>
+        <member name="M:Headjack.App.CreateVideoSphere">
+            <summary>
+            Create video sphere mesh
+            </summary>
+        </member>
+        <member name="M:Headjack.App.CreateVideoplayer(System.Boolean,System.Boolean)">
+            <summary>
+            Create Videoplayer
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetVideoFormatData(System.String,System.Boolean,Headjack.AppData.FormatBlock)">
+            <summary>
+            Returns the correct video format block for this device, and all the metadata with it
+            </summary>
+        </member>
+        <member name="P:Headjack.App.Guid">
+            <summary>
+            The unique identifier of this app on this device.
+            This UID is reset when the app is deleted from the phone
+            </summary>
+        </member>
+        <member name="F:Headjack.App.NO_CATEGORY">
+            <summary>
+            Pass this string to <see cref="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)"/> to get all projects with explicitly no category set
+            </summary>
+        </member>
+        <member name="P:Headjack.App.EnableOVRPlatformMenu">
+             <summary>
+             If true, the back button on the Oculus Mobile platforms will open the Oculus Platform Menu. You can disable this when the user goes out of the menu and in a video. 
+             </summary>
+             <returns>If the platform menu is enabled</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Oculus Mobile platforms only
+            
+             &gt; [!WARNING] 
+             &gt; If disabled, make sure that the back button will always bring you back to the "upper menu" where it is enabled. The user must always be able to reach the Oculus platform menu by keep pressing the back button.
+             </remarks>
+             <example> 
+             <code>
+             // Disable when playing a video
+             void PlayVideo(string id)
+             {
+                 App.EnableOVRPlatformMenu=false;
+                 App.Play(id, true, true, null);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="P:Headjack.App.IsPublished">
+            <summary>
+            Returns whether app has published state set in Headjack
+            </summary>
+            <returns>True if the app is set to published in Headjack (and is therefore available to use)</returns>
+            <remarks>
+            &gt; [!WARNING] 
+            &gt; If an app is set to unpublished in Headjack, the app will receive no media information, like projects, videos or thumbnails.
+            </remarks>
+            <example> 
+            <code>
+            // Show message to the user when app is unpublished
+            public void MessageUserUnpublished() 
+            {
+                if (!Headjack.App.IsPublished)
+                {
+                    Headjack.App.ShowMessage("This app is not published and is currently unavailable!", 5);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.ShowCrosshair">
+            <summary>
+            Headjack's crosshair
+            </summary>
+            <returns>True if the crosshair is currently visible</returns>
+            <example> 
+            <code>
+            public void HideCrosshair() 
+            {
+                App.ShowCrosshair=false;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.CurrentPlatform">
+            <summary>
+            Checks the current platform
+            </summary>
+            <returns>The current platform Headjack is running on</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; For testing: You can change this in the Headjack settings window
+            </remarks>
+            <example> 
+            <code>
+            void LogCurrentPlatform()
+            {
+            #if UNITY_ANDROID
+            if (App.CurrentPlatform == App.VRPlatform.Oculus)
+            {
+                Debug.Log("This app is running on Oculus Go/Quest");
+            }
+            if (App.CurrentPlatform == App.VRPlatform.Cardboard)
+            {
+                Debug.Log("This app is running on Android Cardboard");
+            }
+            #endif
+            #if UNITY_IOS
+            if (App.CurrentPlatform == App.VRPlatform.Cardboard)
+            {
+                Debug.Log("This app is running on iOS Cardboard");
+            }
+            #endif
+            #if UNITY_STANDALONE
+            if (App.CurrentPlatform == App.VRPlatform.Oculus)
+            {
+                Debug.Log("This app is running on Oculus Rift");
+            }
+            if (App.CurrentPlatform == App.VRPlatform.OpenVR)
+            {
+                Debug.Log("This app is running on HTC Vive");
+            }
+            #endif
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.ForceConservativeVideoSupport">
+            <summary>
+            Force conservative video downloads/streams, where the maximum resolution
+            is capped at UHD (not recommended).
+            </summary>
+        </member>
+        <member name="M:Headjack.App.UpdateAvailableMedia(System.String)">
+            <summary>
+            Check if an update is available for media with given id
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GotMediaFile(System.String)">
+            <summary>
+            Check if a Media file is already downloaded
+            </summary>
+        </member>
+        <member name="P:Headjack.App.CinemaSupported">
+            <summary>
+            Returns whether the current template supports Cinema, and if this app
+            is allowed to use it
+            </summary>
+            <returns>True if Cinema is supported and allowed</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Only valid after initialization
+            </remarks>
+            <example> 
+            <code>
+            // Enable a gameobject only if Cinema is allowed
+            public void ToggleGameObjectOnCinemaSupported(GameObject toggleThis) {
+                toggleThis.SetActive(App.CinemaSupported);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.CinemaConnected">
+            <summary>
+            Returns whether the Cinema server connection is live/online
+            </summary>
+            <returns>True if Cinema server connection is live, otherwise false</returns>
+            <example> 
+            <code>
+            // Enable a gameobject only if Cinema server connection is online
+            public void ToggleGameObjectOnCinemaConnect(GameObject toggleThis) {
+                toggleThis.SetActive(App.CinemaConnected);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.IsVRMode">
+            <summary>
+            Returns whether app is currently running in VR mode (e.g. stereo display), or not (e.g. fullscreen cardboard menu)
+            </summary>
+            <returns>True if the app is currently running in VR mode</returns>
+            <example> 
+            <code>
+            // Show message to the user when not in VR mode
+            public void MessageUserNotVR() 
+            {
+                if (!Headjack.App.IsVRMode)
+                {
+                    Headjack.App.ShowMessage("You are currently not in VR mode", 5);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Headjack.App.CameraScale">
+            <summary>
+            Changing the camera scale will Shrink or Enlarge the world around you. Useful if an interface needs to get just a little bigger or smaller
+            </summary>
+            <returns>Returns the current camera scale</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Will clamp between 0.01 and 100
+            </remarks>
+            <example> 
+            <code>
+            // Shrink or grow with the arrow keys
+            void Update()
+            {
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    App.CameraScale+=1;
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    App.CameraScale-=1;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Headjack.App.AppMetadata">
+            <summary>
+            Container class for app metadata, used by <see cref="M:Headjack.App.GetAppMetadata"/>.
+            </summary>
+        </member>
+        <member name="F:Headjack.App.AppMetadata.Published">
+            <summary>
+            True if the loaded application is published
+            </summary>
+        </member>
+        <member name="F:Headjack.App.AppMetadata.ProductName">
+            <summary>
+            The application's name
+            </summary>
+        </member>
+        <member name="F:Headjack.App.AppMetadata.CompanyName">
+            <summary>
+            Company name
+            </summary>
+        </member>
+        <member name="T:Headjack.App.VideoMetadata">
+            <summary>
+            Container class for video metadata, used by <see cref="M:Headjack.App.GetVideoMetadata(System.String)"/>.
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.id">
+            <summary>
+            Unique ID of the video, differs from projectId
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.ProjectionType">
+            <summary>
+            Dimensions tag
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.Duration">
+            <summary>
+            Duration of the video in milliseconds
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.Width">
+            <summary>
+            The video's dimensions
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.Height">
+            <summary>
+            The video's dimensions
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.AudioChannels">
+            <summary>
+            The video's dimensions
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.DurationMMSS">
+            <summary>
+            Formatted string of video duration
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.DurationHHMMSS">
+            <summary>
+            Formatted string of video duration
+            </summary>
+        </member>
+        <member name="F:Headjack.App.VideoMetadata.HasAdaptiveStream">
+            <summary>
+            True when this video can be played back as an adaptive (HLS) VOD or livestream
+            </summary>
+        </member>
+        <member name="T:Headjack.App.MediaMetadata">
+             <summary>
+             Container class with metadata about a media item (project thumbnail, custom media variable item)
+             </summary>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Get media metadata using function <see cref="M:Headjack.App.GetMediaMetadata(System.String)"/>
+            
+             &gt; [!NOTE] 
+             &gt; Some metadata fields are only relevant to particular media items (e.g. <see cref="F:Headjack.App.MediaMetadata.Width"/> for images)
+             </remarks>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.Id">
+            <summary>
+            Media ID of the item that this metadata describes
+            </summary>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.MimeType">
+            <summary>
+            MIME type of this media item (e.g. "image/png")
+            </summary>
+            <remarks>
+            &gt; [!NOTE]
+            &gt; certain media items do not have an official MIME type, so they get an unofficial type (e.g. "audio/x-tbe" for a TBE spatial audio file)
+            </remarks>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.Filename">
+            <summary>
+            Filename of the media item when downloaded (e.g. using <see cref="M:Headjack.App.DownloadSingleMedia(System.String,System.Boolean,Headjack.OnEnd)"/>)
+            </summary>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; This is a randomly generated filename and not the original name shown on the Headjack website
+            </remarks>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.Width">
+            <summary>
+            Width (in pixels) of media item, for image files
+            </summary>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.Height">
+            <summary>
+            Height (in pixels) of media item, for image files
+            </summary>
+        </member>
+        <member name="F:Headjack.App.MediaMetadata.FileSize">
+            <summary>
+            Filesize (in bytes) of media item
+            </summary>
+        </member>
+        <member name="T:Headjack.App.CategoryMetadata">
+            <summary>
+            Container class for Category metadata, used by <see cref="M:Headjack.App.GetCategoryMetadata(System.String)"/>.
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CategoryMetadata.Id">
+            <summary>
+            Id of this category
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CategoryMetadata.Name">
+            <summary>
+            Name of the Category
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CategoryMetadata.Description">
+            <summary>
+            Additional description of the category
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CategoryMetadata.ThumbnailId">
+            <summary>
+            Media ID of the thumbnail associated with this category
+            </summary>
+        </member>
+        <member name="F:Headjack.App.CategoryMetadata.ParentId">
+            <summary>
+            This category's parent category (null if this is not a sub-category)
+            </summary>
+        </member>
+        <member name="T:Headjack.App.ProjectMetadata">
+             <summary>
+             Container class with metadata about a Project
+             </summary>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Get Project metadata using function <see cref="M:Headjack.App.GetProjectMetadata(System.String,Headjack.App.ByteConversionType)"/>
+            
+             &gt; [!NOTE] 
+             &gt; Certain fields can be null when they arent uploaded on the server
+             </remarks>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.Id">
+            <summary>
+            Id of the project
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.Title">
+            <summary>
+            The project's title
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.Description">
+            <summary>
+            The project's description (can be null)
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.Category">
+            <summary>   
+            The category where the project can be found (can be null)
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.ThumbnailId">
+            <summary>
+            The media id of the thumbnail that belongs to this project (can be null)
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.VideoId">
+            <summary>
+            The video that is included in the project (can be null)
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.AudioId">
+            <summary>
+            The external audio that is included in the project (can be null)
+            </summary>
+        </member>
+        <member name="F:Headjack.App.ProjectMetadata.TotalSize">
+            <summary>
+            Filesize (in <see cref="T:Headjack.App.ByteConversionType"/>) of all files in this project, when downloaded on current device
+            </summary>
+        </member>
+        <member name="F:Headjack.App.Player">
+            <summary>
+            The video player instance
+            </summary>
+            <returns>The video player instance with it's own functions and variables, see <see cref="T:Headjack.VideoPlayerBase"/> </returns>
+        </member>
+        <member name="F:Headjack.App.camera">
+            <summary>
+            Transform of headjack's camera
+            </summary>
+            <returns>Transform in the middle of both eyes</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; GameObject associated with this Transform does not necessarily have a Camera component
+            </remarks>
+        </member>
+        <member name="F:Headjack.App.Crosshair">
+            <summary>
+            Headjack's default crosshiar
+            </summary>
+            <returns>Crosshair class with all settings</returns>
+        </member>
+        <member name="F:Headjack.App.CrosshairHit">
+            <summary>
+            All raycast information about what the user is looking at
+            </summary>
+            <returns>RaycastHit information</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Use <see cref="M:Headjack.App.IsCrosshairHit(UnityEngine.Collider,Headjack.App.RaycastSource)"/> to quickly check if an certain object is being looked at
+            </remarks>
+            <example> 
+            <code>
+            public float DistanceToObjectLookingAt
+            {
+                return App.CrosshairHit.distance;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="F:Headjack.App.LaserHit">
+            <summary>
+            All raycast information about what the user is pointing at with the motion controller
+            </summary>
+            <returns>RaycastHit information</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Use <see cref="M:Headjack.App.IsCrosshairHit(UnityEngine.Collider,Headjack.App.RaycastSource)"/> to quickly check if an certain object is being aimed at
+            </remarks>
+            <example> 
+            <code>
+            public Vector3 AimingLocation
+            {
+                return App.LaserHit.point;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="F:Headjack.App.TouchHit">
+            <summary>
+            All raycast information about what the user is touching on screen (Cardboard)
+            </summary>
+            <returns>RaycastHit information</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Use <see cref="M:Headjack.App.IsCrosshairHit(UnityEngine.Collider,Headjack.App.RaycastSource)"/> to quickly check if an certain object is being touched
+            </remarks>
+            <example> 
+            <code>
+            public GameObject ObjectTouching
+            {
+                return App.TouchHit.collider.gameObject;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="F:Headjack.App.CurrentVideo">
+            <summary>
+            The id of the video that is currently being played
+            </summary>
+            <returns>The id of the video that is currently being played</returns>
+        </member>
+        <member name="F:Headjack.App.CurrentProject">
+            <summary>
+            The id of the project that is currently being played
+            </summary>
+            <returns>The id of the project that is currently being played</returns>
+        </member>
+        <member name="F:Headjack.App.CameraParent">
+            <summary>
+            VR Camera GameObject
+            </summary>
+            <returns>GameObject of the active VR Camera</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; For Camera Position or Rotation, please use <see cref="F:Headjack.App.camera"/>. For Disabling or Enabling the Camera, please use <see cref="M:Headjack.App.SetCamera(System.Boolean,System.Boolean)"/>
+            </remarks>
+        </member>
+        <member name="M:Headjack.App.Initialize(Headjack.OnEnd,System.Boolean,System.Boolean,System.String)">
+            <summary> 
+            Initialize the app and download necessary data
+            </summary>
+            <param name="OnReady">Will be called when done</param>
+            <param name="autoCreateCamera">Also activate the VR camera</param>
+            <param name="cardboardStereoMode">(cardboard) VR Mode enabled for cardboard</param>
+            <param name="customHost">Use a custom hosted app metadata file (contact support@headjack.io for more information)</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Must be called before all other Headjack operations
+            </remarks>
+            <example> 
+            <code>
+            public void Initialize()
+            {
+                App.Initialize(OnReady);
+            }
+            public void OnReady(bool Succes)
+            {
+                if (Succes)
+                {
+                    print("Initialized!");
+                } else
+                {
+                    print("No internet connection");
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.Reset">
+            <summary> 
+            Resets the initialization and configuration to allow for a different app initialization
+            </summary>
+        </member>
+        <member name="M:Headjack.App.DownloadAllTextures(Headjack.OnEnd,System.Boolean,Headjack.OnImageProgress)">
+            <summary>
+            Download and import all textures
+            </summary>
+            <param name="OnLoaded">Will be called when done</param>
+            <param name="GenerateMipmaps">Automatically generate mipmaps after importing</param>
+            <param name="progressListener">Will be called with current progress information</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Will only download textures once, or when they are updated on the server
+            </remarks>
+            <example> 
+            <code>
+            public void LoadTextures()
+            {
+                App.LoadAllTextures(OnReady);
+            }
+            public void OnReady(bool Succes)
+            {
+                if (Succes)
+                {
+                    print("Got all textures!");
+                } else
+                {
+                    print("Could not load the textures");
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.DownLoadSingleTexture(System.String,Headjack.OnEnd,System.Boolean,System.Boolean)">
+             <summary>
+             Download and import a texture
+             </summary>
+             <param name="Id">The media id or project of the texture/thumbnail</param>
+             <param name="OnLoaded">Will be called when done</param>
+             <param name="UnscaledSlow">Get the raw image from the server</param>
+             <param name="GenerateMipmaps">Automatically generate mipmaps after importing</param>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Will only download the texture once, or when it is updated on the server
+            
+             &gt; [!WARNING] 
+             &gt; Headjack automatically converts images, these have a maximum resolution of 1024x1024. 
+             &gt; You can download and import the original file by setting "UnscaledSlow" to true. However, 
+             &gt; keep in mind that this can generate CPU spikes and some devices do not support textures higher then 2048x2048. 
+             </remarks>
+             <example> 
+             <code>
+             public void DownLoadSingleTexture()
+             {
+                 App.LoadAllTextures("12345678",OnReady);
+             }
+             public void OnReady(bool Succes)
+             {
+                 if (Succes)
+                 {
+                     print("Got the texture!");
+                 } else
+                 {
+                     print("Could not download the texture");
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.Play(System.String,System.Boolean,System.Boolean,Headjack.OnEnd)">
+             <summary>
+             Play a project
+             </summary>
+             <param name="ProjectId">The project you want to play</param>
+             <param name="Stream">Directly stream the video from the server</param>
+             <param name="WifiOnly">(Streaming) only stream when connected to a wifi network</param>
+             <param name="onEnd">Will be called when the video is finished</param>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Will automatically create and initialize the video player. If stream is false, the video won't play if it isn't downloaded first
+            
+             &gt; [!WARNING] 
+             &gt; Enabling WifiOnly is strongly recommended when using Stream to avoid high mobile data costs
+             </remarks>
+             <example> 
+             <code>
+             public void StreamFirstVideo()
+             {
+                 string id = App.GetProjects()[0];
+                 App.Play(id, true, true, onEnd);
+             }
+             public void onEnd(bool succes, string error)
+             {
+                 print("Video has finished playing!");
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.Download(System.String,System.Boolean,Headjack.OnEnd)">
+            <summary>
+            Download all files in a project
+            </summary>
+            <param name="ProjectId">The project you want to download</param>
+            <param name="WifiOnly">Only download when connected to Wifi</param>
+            <param name="onEnd">Will be called when the download is finished</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Will call onEnd with (false,"NoWifi") if WifiOnly is true and there is no wifi connection
+            </remarks>
+            <example> 
+            <code>
+            public string id;
+            public void DownloadAndPlayFirstVideo()
+            {
+                id = App.GetProjects()[0];
+                App.Download(id, true, OnDownloaded);
+            }
+            public void OnDownloaded(bool succes, string error)
+            {
+                if (succes)
+                {
+                    App.Play(id, false, false, null);
+                }else{
+                Debug.Log(error);
+            }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.CanBeDownloaded(System.String)">
+            <summary>
+            Check if a project's contents can be downloaded.
+            </summary>
+            <param name="projectId">Project id</param>
+            <returns>true if the project can be downloaded</returns>
+            <example> 
+            <code>
+            public bool DownloadIfPossible(ProjectId)
+            {
+                if(App.CanBeDownloaded(ProjectId))
+                {
+                    App.Download(ProjectId);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.Cancel(System.String)">
+            <summary>
+            Cancel an active download
+            </summary>
+            <param name="ProjectId">Project download to cancel</param>
+            <example> 
+            <code>
+            public void CancelAllDownloads()
+            {
+                string[] projects = App.GetProjects();
+                foreach (string project in projects)
+                {
+                    App.Cancel(project);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.Delete(System.String)">
+            <summary>
+            Delete all local files of a project
+            </summary>
+            <param name="ProjectId">The project id</param>
+            <example> 
+            <code>
+            public void DeleteAllProjects()
+            {
+                string[] projects = App.GetProjects();
+                foreach (string project in projects)
+                {
+                    App.Delete(project);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GotFiles(System.String)">
+            <summary>
+            Check if you have all the files of a project
+            </summary>
+            <param name="ProjectId">Project to check</param>
+            <returns>True if you have all the files</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Does not check if you have the latest version of the files, for that see <see cref="M:Headjack.App.UpdateAvailable(System.String)"/>
+            </remarks>
+            <example> 
+            <code>
+            public void StreamOnlyWhenFilesAreNotPresent(string projectid)
+            {
+                if (App.GotFiles(projectid))
+                {
+                    App.Play(projectid, false, false, null);
+                }
+                else
+                {
+                    App.Play(projectid, true, true, null);
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.UpdateAvailable(System.String)">
+            <summary>
+            Check if a project or media file has an update available
+            </summary>
+            <param name="Id">Id to check</param>
+            <returns>True if there is an update available</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Will also return True if the files are not yet downloaded
+            </remarks>
+            <example> 
+            <code>
+            public void CheckForUpdates()
+            {
+                string[] projects = App.GetProjects();
+                foreach (string project in projects)
+                {
+                    if(App.UpdateAvailable(project))
+                    {
+                        print(project + " has an update available!");
+                    }
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.Fade(System.Boolean,System.Single,Headjack.OnEnd)">
+             <summary>
+             Fade screen to or from black
+             </summary>
+             <param name="ToBlack">True to fade to black (fade out), false to fade from black (fade in)</param>
+             <param name="Time">Duration of the fade effect in seconds</param>
+             <param name="OnFade">Event function that gets executed when fade is completed</param>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Use this function to hide stutter, by fading to black before heavy loading
+            
+             &gt; [!NOTE] 
+             &gt; The parameters of OnFade (bool success, string error) are unused
+             </remarks>
+             <example> 
+             <code>
+             UnityEngine.GameObject interface;
+             // This function fades the screen to black for 1.5 seconds and then disables the 'interface' GameObject
+             // Another function has to fade the screen back in, or the screen will remain black
+             void FadeOutInterface()
+             {
+                 App.Fade(true, 1.5f, delegate (bool success, string error) {interface.SetActive(false);});
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.IsCrosshairHit(UnityEngine.GameObject,UnityEngine.RaycastHit@,Headjack.App.RaycastSource)">
+            <summary>
+            Returns true if the user is aiming at the target
+            </summary>
+            <param name="target">The object to check</param>
+            <param name="hitInfo">RaycastHit containing all information about the raycast</param>
+            <param name="raycastSource">Where the raycast is coming from</param>
+            <returns>True if the user is looking at the object</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Object must have a collider (2d colliders won't work)
+            </remarks>
+            <example> 
+            <code>
+            bool IsTheCameraLookingAtMe
+            {
+                return App.IsCrosshairHit(gameobject);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.IsCrosshairHit(UnityEngine.Collider,UnityEngine.RaycastHit@,Headjack.App.RaycastSource)">
+            <summary>
+            Returns true if the user is aiming at the target
+            </summary>
+            <param name="target">The collider to check</param>
+            <param name="hitInfo">RaycastHit containing all information about the raycast</param>
+            <param name="raycastSource">Where the raycast is coming from</param>
+            <returns>True if the user is looking at the collider</returns>
+            <example> 
+            <code>
+            bool IsTheCameraLookingAtMe
+            {
+                return App.IsCrosshairHit(gameobject);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.IsCrosshairHit(UnityEngine.GameObject,Headjack.App.RaycastSource)">
+            <summary>
+            Returns true if the user is aiming at the target
+            </summary>
+            <param name="target">The object to check</param>
+            <param name="raycastSource">Where the raycast is coming from</param>
+            <returns>True if the user is looking at the object</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Object must have a collider (2d colliders won't work)
+            </remarks>
+            <example> 
+            <code>
+            bool IsTheCameraLookingAtMe
+            {
+                return App.IsCrosshairHit(gameobject);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.IsCrosshairHit(UnityEngine.Collider,Headjack.App.RaycastSource)">
+            <summary>
+            Returns true if the user is aiming at the target
+            </summary>
+            <param name="target">The collider to check</param>
+            <param name="raycastSource">Where the raycast is coming from</param>
+            <returns>True if the user is looking at the collider</returns>
+            <example> 
+            <code>
+            bool IsTheCameraLookingAtMe
+            {
+                return App.IsCrosshairHit(gameobject);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetProjectMetadata(System.String,Headjack.App.ByteConversionType)">
+             <summary>
+             Get metadata of project
+             </summary>
+             <param name="projectId">Project ID whose video metadata to retrieve</param>
+             <param name="FileSizeFormat">Filesize format of <see cref="F:Headjack.App.ProjectMetadata.TotalSize"/> in return class</param>
+             <returns><see cref="T:Headjack.App.ProjectMetadata"/> class containing metadata for project, null when projectId is invalid</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Use <see cref="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)"/> to get a list of Project IDs for this App
+            
+             &gt; [!NOTE] 
+             &gt; Some variables in the returned <see cref="T:Headjack.App.ProjectMetadata"/> class can be null if the project is missing data (e.g. does not have a thumbnail)
+             </remarks>
+             <example> 
+             <code>
+             // Set text of 3D Text Mesh to filesize (in MB) of project with projectId
+             void SetProjectSize(string projectId, UnityEngine.TextMesh projectSizeText)
+             {
+                 float projectSize = Headjack.App.GetProjectMetadata(projectId, Headjack.App.ByteConversionType.Megabytes).TotalSize;
+                 // set 3D text to &lt;projectSize&gt; MB (projectSize is rounded to 2 decimal points)
+                 projectSizeText.text = projectSize.ToString("2n") + " MB";
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.GetCategories">
+            <summary>
+            Get all (sub)category IDs used in this app.
+            </summary>
+            <returns>a string array containing all category IDs</returns>
+        </member>
+        <member name="M:Headjack.App.DestroyVideoPlayer">
+            <summary>
+            Destroys the active videoplayer
+            </summary>
+            <example> 
+            <code>
+            GameObject menuObject;
+            public void BackToMenu()
+            {
+            App.DestroyVideoPlayer();
+            menuObject.SetActive(true);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.ProjectIsLiveStream(System.String)">
+            <summary>
+            Check if a project contains a live stream
+            </summary>
+            <returns>true if the project contains a live stream</returns>
+            <example> 
+            <code>
+            public string CheckIfLiveStream(ProjectId)
+            {
+                if(App.ProjectIsLiveStream(ProjectId))
+                {
+                    return "Livestream!";
+                } else {
+                    return "No Livestream";
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.IsLiveStream(System.String)">
+            <summary>
+            Check if a project contains a live stream
+            </summary>
+            <returns>true if the project contains a live stream</returns>
+            <example> 
+            <code>
+            public string CheckIfLiveStream(ProjectId)
+            {
+                if(App.IsLiveStream(ProjectId))
+                {
+                    return "Livestream!";
+                } else {
+                    return "No Livestream";
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetCustomVariable(System.String)">
+            <summary>
+            Access custom template variables, downloaded from Headjack
+            </summary>
+            <returns>Returns the string value corresponding to the custom variable key, or null of key does not exist</returns>
+            <param name="key">String key/name identifying the custom variable</param>
+            <example> 
+            <code>
+            // Get a Texture object of an additional media item, whose id is passed to this
+            // template using a custom variable called "menu_background_image_id"
+            public Texture2D getBackgroundTexture()
+            {
+                return App.GetImage(App.GetCustomVariable("menu_background_image_id"));
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetColor(System.String,UnityEngine.Color)">
+            <summary>
+            Get the app colors, from the server
+            </summary>
+            <returns>Returns the color given in Key</returns>
+            <example> 
+            <code>
+            public Color GetBackgroundColor(string key)
+            {
+                return App.GetColor(key,Color.black);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.ProjectIsDownloading(System.String)">
+            <summary>
+            Check if a project is currently downloading
+            </summary>
+            <param name="ProjectId">Project to check</param>
+            <returns>True if a project is currently downloading</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; To get the progress, use <see cref="M:Headjack.App.GetProjectProgress(System.String)"/>
+            </remarks>
+            <example> 
+            <code>
+            public float GetProgress(string projectid)
+            {
+                if (App.ProjectIsDownloading(projectid))
+                {
+                    return App.GetProjectProgress(projectid);
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetProjectProgress(System.String)">
+            <summary>
+            Get the download progress of a project (0 to 100)
+            </summary>
+            <param name="ProjectId">The project to check</param>
+            <returns>The download progress from 0 to 100, -1 on fail</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; The returned value is not rounded, for displaying smooth loading bars
+            </remarks>
+            <example> 
+            <code>
+            public string GetProgressText(string projectid)
+            {
+                if (!App.ProjectIsDownloading(projectid))
+                {
+                    return null;
+                }
+                float progress = App.GetProjectProgress(projectid);
+                return Mathf.FloorToInt(progress).ToString() + "%";
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetMediaProgress(System.String)">
+             <summary>
+             Get the download progress of an individual media item in percentage (0 to 100)
+             </summary>
+             <param name="MediaId">The media (by ID) to check</param>
+             <returns>The download progress from 0 to 100, -1 when not currently downloading or total size unknown</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; The returned value is not rounded, for displaying smooth loading bars
+            
+             &gt; [!NOTE] 
+             &gt; Video IDs are not supported, use <see cref="M:Headjack.App.GetProjectProgress(System.String)"/> instead
+             </remarks>
+             <example> 
+             <code>
+             public string GetProgressText(string mediaId)
+             {
+                 float progress = App.GetMediaProgress(mediaId);
+                 if (progress &lt; 0) {
+                     return "-%";
+                 }
+                 return Mathf.FloorToInt(progress).ToString() + "%";
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.GetMediaDownloadedBytes(System.String)">
+             <summary>
+             Get the progress of an individual media download in bytes
+             </summary>
+             <param name="MediaId">The media (by ID) to check</param>
+             <returns>The download progress in bytes, -1 when not currently downloading</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Use <see cref="M:Headjack.App.GetMediaMetadata(System.String)"/> to get media item's total size in bytes
+            
+             &gt; [!NOTE] 
+             &gt; Video IDs are not supported, use <see cref="M:Headjack.App.GetProjectProgress(System.String)"/> instead
+             </remarks>
+             <example> 
+             <code>
+             public string GetDetailedDownloadProgress(string mediaId)
+             {
+                 long progress = App.GetMediaDownloadedBytes(mediaId);
+                 if (progress &lt; 0) {
+                     return "not downloading";
+                 }
+                 return progress + "/" + App.GetMediaMetadata(mediaId).FileSize;
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.RegisterCinemaListener(System.String,Headjack.PushEvent)">
+             <summary>
+             Register listener for a named event from the live Cinema feature
+             </summary>
+             <param name="eventName">Event name listener will be associated with</param>
+             <param name="listener">This delegate will be invoked when event with eventName is activated</param>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; The listener takes a <see cref="T:SimpleJSON.JSONArray"/> parameter, which contains an array of event arguments
+            
+             Cinema default events:
+                 "changeAlias": string parameter is new device name/alias
+                 "download": download project, string parameter is project ID
+                 "play": play project, string parameter is project ID
+                 "delete": delete project, string parameter is project ID
+                 "stop": stop playback, no parameters
+                 "pause": pause playback, no parameters
+                 "resume": resume playback, no parameters
+                 "view": show project details, string parameter is project ID
+                 "stream": stream from url, string parameter is stream url
+                 "message": show message to user, string parameter is message
+             </remarks>
+             <example> 
+             <code>
+             public void Start() {
+                 App.RegisterCinemaListener("pause", HandleCinemaPause);
+             }
+             // pause video playback
+             public void HandleCinemaPause() {
+                 if (App.Player != null) {
+                     App.Player.Pause();
+                 }
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.RemoveCinemaListener(System.String,Headjack.PushEvent)">
+            <summary>
+            Remove a listener for a named Cinema event
+            </summary>
+            <param name="eventName">Event name listener is associated with</param>
+            <param name="listener">This delegate will be removed from the event's listeners</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; See <see cref="M:Headjack.App.RegisterCinemaListener(System.String,Headjack.PushEvent)"/> for more information.
+            </remarks>
+            <example> 
+            <code>
+            PushEvent previouslyRegisteredListener;
+            // remove previouslyRegisteredListener from "pause" event listeners
+            public void RemoveListener() {
+                App.RemoveCinemaListener("pause", previouslyRegisteredListener);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.SendCinemaStatus(System.String,System.String,System.Single,System.Single,System.String)">
+            <summary>
+            Send an updated status to the Cinema server
+            </summary>
+            <param name="statusType">One of several pre-defined status type names</param>
+            <param name="message">A message further detailing the status</param>
+            <param name="progressCurrent">Generic current progress (e.g. download or playback progress)</param>
+            <param name="progressTotal">Max value of <paramref name="progressCurrent"/></param>
+            <param name="progressUnit">String indicating which unit <paramref name="progressCurrent"/> should be displayed in</param>
+            <remarks>
+            Pre-defined status types:
+                "error": error occurred, message contains details
+                "playing": currently playing a project
+                "paused": playback of a project is paused
+                "downloading": downloading project/media
+                "idle": nothing active, waiting for command
+            </remarks>
+            <example> 
+            <code>
+            // register listener to "pause" event that sends "paused" status back
+            public void RegisterPauseListener() {
+                App.RegisterCinemaListener("pause", delegate {
+                    if (App.Player != null) {
+                        App.Player.Pause();
+                        App.SendCinemaStatus("paused", "Paused playback of " +
+                            App.GetProjectMetadata(App.CurrentProject).Title);
+                    } else {
+                        App.SendCinemaStatus("idle", "Nothing to pause");
+                    }
+                });
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.SetCamera(System.Boolean,System.Boolean)">
+            <summary>
+            Enable or Disable the default Headjack VR Camera and switch VR mode on Cardboard
+            </summary>
+            <param name="visible">Enable or Disable the VR Camera</param>
+            <param name="vrMode">(Cardboard) Enable or Disable VR mode</param>
+            <example> 
+            <code>
+            public void GoFullScreen()
+            {
+                App.SetCamera(true,false);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.SetCameraBackground(UnityEngine.Color)">
+            <summary>
+            Set background color
+            </summary>
+            <param name="backgroundColor"><see href="https://docs.unity3d.com/ScriptReference/Color.html">UnityEngine.Color</see> object containing new background color</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; This sets the background color of the active VR camera, and persists between Unity scenes.
+            </remarks>
+            <example> 
+            <code>
+            // Set backgound color to red
+            public void SetRedBackground()
+            {
+                Headjack.App.SetCameraBackground(Color.red);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.SetCameraBackground(UnityEngine.Material)">
+            <summary>
+            Set background skybox
+            </summary>
+            <param name="skybox"><see href="https://docs.unity3d.com/ScriptReference/Material.html">UnityEngine.Material</see> object containing new skybox</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; This sets the background skybox of the active VR camera, and persists between Unity scenes.
+            </remarks>
+            <example> 
+            <code>
+            // Set the default Unity Skybox to the headjack camera
+            public void SetDefaultSkybox()
+            {
+                Headjack.App.SetCameraBackground(RenderSettings.skybox);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.Recenter(System.Boolean)">
+            <summary>
+            Recenter orientation and position on your device
+            </summary>
+            <param name="allowRoomScaleHeight">When true, (0,0,0) will be at floor level</param>
+            <example> 
+            <code>
+            // Recenter when playing a video
+            void PlayVideo(string id)
+            {
+                App.Recenter();
+                App.Play(id, true, true, null);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.SetTrackingOrigin(Headjack.App.TrackingOrigin)">
+            <summary>
+            Sets whether to Unity scene is centered on the floor level or the eye level
+            </summary>
+            <returns>True if Tracking origin was successfully set</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; For VR platforms that do not have an internal floor height, using 1.6m below current eye height
+            </remarks>
+        </member>
+        <member name="M:Headjack.App.GetTrackingOrigin">
+            <summary>
+            Gets whether to Unity scene is centered on the floor level or the eye level
+            </summary>
+        </member>
+        <member name="M:Headjack.App.GetTitle(System.String)">
+            <summary>
+            Get the title of the given project
+            </summary>
+            <param name="Id">The project id</param>
+            <returns>The title of the project with ProjectId</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; To get a list with available projects, use <see cref="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)"/>
+            </remarks>
+            <example> 
+            <code>
+            public string GetFirstTitle()
+            {
+                string[] ids = App.GetProjects();
+                return App.GetTitle(ids[0]);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetDescription(System.String)">
+             <summary>
+             Get the Description of the given project
+             </summary>
+             <param name="ProjectId">The project id</param>
+             <returns>The description of the project with ProjectId, null if the project has no description</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; To get a list with available projects, use <see cref="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)"/>
+            
+             &gt; [!WARNING] 
+             &gt; When using this, make sure to check if the string is not null before using to avoid NullReference exceptions
+             </remarks>
+             <example> 
+             <code>
+             public string GetFirstDescription()
+             {
+                 string[] ids = App.GetProjects();
+                 return App.GetDescription(ids[0]);
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)">
+            <summary>
+            Contains all available projects from the server
+            </summary>
+            <param name="CategoryId">Only return projects that fit in this category filter</param>
+            <param name="MaxPageSize">Only return a part from the list</param>
+            <param name="CurrentPage">The part of the list to return. Starting at 0</param>
+            <returns>A list with project ids</returns>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; Use <see cref="M:Headjack.App.GetCategories"/> To get all available categories.
+            </remarks>
+            <example> 
+            <code>
+            //In this case, 5 projects per page
+            public string[] WhatsOnTheFirstPage
+            {
+                return App.GetProjects(null,5,0);
+            }
+            public string[] WhatsOnTheLastPage
+            {
+                return App.GetProjects(null,5,int.MaxValue);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetImage(System.String,System.Boolean)">
+            <summary>
+            Get a downloaded texture from te server
+            </summary>
+            <param name="Id">Project id or media id</param>
+            <param name="UnscaledSlow">Get the raw texture</param>
+            <returns>Texture 2d of given project/media id. Returns null if the media file doesn exists. Returns null if the given project doesn't have a thumbnail attached</returns>
+            <remarks>
+            &gt; [!WARNING] 
+            &gt; When using this, make sure to check if the Texture is not null before using to avoid NullReference errors
+            </remarks>
+            <example> 
+            <code>
+            public void ApplyTexture(string MediaId)
+            {
+                GetComponent&lt;MeshRenderer&gt;().material.mainTexture = App.GetImage(MediaId);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetAdditionalMedia">
+             <summary>
+             Get IDs of extra media items from server
+             </summary>
+             <returns>List of ID strings of extra media items as entered on Headjack "Edit app" page</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Download a media item from this list using <see cref="M:Headjack.App.DownloadSingleMedia(System.String,System.Boolean,Headjack.OnEnd)"/>
+            
+             &gt; [!NOTE] 
+             &gt; Load the downloaded media as texture using <see cref="M:Headjack.App.GetImage(System.String,System.Boolean)"/>
+            
+             &gt; [!NOTE]
+             &gt; Get metadata for media item using <see cref="M:Headjack.App.GetMediaMetadata(System.String)"/>
+             </remarks>
+             <example> 
+             <code>
+             // return number of extra media items
+             public int GetNumberOfExtraMedia()
+             {
+                 return App.GetAdditionalMedia().Count;
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.DownloadSingleMedia(System.String,System.Boolean,Headjack.OnEnd)">
+             <summary>
+             Download a single media item (e.g. media from a custom variable)
+             </summary>
+             <param name="mediaId">ID of media item that will be downloaded</param>
+             <param name="wifiOnly">Set to true to only download over wifi and not use mobile data</param>
+             <param name="onEnd">This delegate is called when the download has finished (or failed)</param>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; mediaId must be a media item either from a custom variable or a thumbnail of a project or category used in the app
+            
+             &gt; [!NOTE] 
+             &gt; Videos in projects are special entries on the server and do not have a media ID
+             
+             &gt; [!NOTE]
+             &gt; onEnd returns bool indicating success of download and a string containing error message if unsuccessful
+             </remarks>
+             <example> 
+             <code>
+             // download a specific custom media variable
+             public void DownloadFirstExtraMedia()
+             {
+                 App.DownloadSingleMedia(Headjack.CustomVariables.GetVariable&lt;string&gt;("a_media_variable"), false,
+                     delegate (bool success, string error)
+                     {
+                         if (success)
+                         {
+                             Debug.Log("Downloaded a_media_variable media");
+                         }
+                         else
+                         {
+                             Debug.LogError("Downloading a_media_variable media failed!");
+                         }
+                     });
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.ShowMessage(System.String,System.Single,Headjack.OnEnd)">
+            <summary>
+            PopUp Messages for displaying a text
+            </summary>
+            <example> 
+            <code>
+            public void SayHello()
+            {
+                App.ShowMessage("Hello world", 1f);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetAppMetadata">
+            <summary>
+            Get metadata for the app
+            </summary>
+            <returns><see cref="T:Headjack.App.AppMetadata"/> class containing metadata for app</returns>
+            <example> 
+            <code>
+            bool IsMyAppPublished()
+            {
+                return Headjack.App.GetAppMetadata().Published;               
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetVideoMetadata(System.String)">
+             <summary>
+             Get metadata for video associated with project ID
+             </summary>
+             <param name="Id">Project ID whose video metadata to retrieve</param>
+             <returns><see cref="T:Headjack.App.VideoMetadata"/>class containing metadata for video item, or null when invalid Project ID or project without video</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Use <see cref="M:Headjack.App.GetProjects(System.String,System.Int32,System.Int32)"/> to get a list of Project IDs for this App
+            
+             &gt; [!NOTE] 
+             &gt; To get filesize and other information about a project, use <see cref="M:Headjack.App.GetProjectMetadata(System.String,Headjack.App.ByteConversionType)"/>
+             </remarks>
+             <example> 
+             <code>
+             // Returns string with duration of video in n-th project (first = 0, second = 1, etc. project in App)
+             // in format MM:SS (M = minutes, S = seconds)
+             string GetFormattedVideoDuration(int projectIndex)
+             {
+                 string[] projects = Headjack.App.GetProjects();
+                 // if projectIndex is invalid (negative or larger than number of projects), return empty string
+                 if (projectIndex &lt; 0 || projectIndex &gt;= projects.Length) 
+                 {
+                     return "";
+                 }
+                 return Headjack.App.GetVideoMetadata(projects[projectIndex]).DurationMMSS;               
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.GetCustomVideoParam(System.String,System.String,System.Int32@)">
+             <summary>
+             Get metadata for video associated with project ID
+             </summary>
+             <param name="id">Project ID or Video ID to retrieve custom parameter from</param>
+             <param name="paramName">Custom video parameter identifier</param>
+             <param name="paramVal">Value of custom video parameter</param>
+             <returns>Whether parameter with paramName could be retrieved</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; Available video params depends on VideoMetadata.ProjectionType
+            
+             &gt; [!NOTE] 
+             &gt; EQUIRECT projection has "FovX" and "FovY" int params for horizontal and vertical field of view
+            
+             &gt; [!NOTE]
+             &gt; FLAT projection has "OrgX" and "OrgY" int params for original video width and height in pixels
+             </remarks>
+        </member>
+        <member name="M:Headjack.App.GetMediaMetadata(System.String)">
+             <summary>
+             Get metadata for media item
+             </summary>
+             <param name="mediaId">ID of media item</param>
+             <returns><see cref="T:Headjack.App.MediaMetadata"/> class containing metadata for media item, or null when invalid mediaId</returns>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; mediaId must be a media item either from a custom variable or a thumbnail of a project or category used in the app 
+            
+             &gt; [!NOTE] 
+             &gt; Videos in projects are special entries on the server and do not have a media ID
+             </remarks>
+             <example> 
+             <code>
+             // return filesize of specific custom media variable (or -1 if custom variable fails to return media)
+             public long GetCustomFileSize()
+             {
+                 // try to get media id from custom variable named a_media_variable
+                 string mediaId;
+                 if (Headjack.CustomVariables.TryGetVariable&lt;string&gt;("a_media_variable", out mediaId))
+                 {
+                     App.MediaMetadata mediaMetaData = Headjack.App.GetMediaMetadata(mediaId);
+                     if (mediaMetaData != null)
+                     {
+                         return mediaMetaData.FileSize;
+                     }
+                 }
+                 return -1;
+             }
+             </code>
+             </example>
+        </member>
+        <member name="M:Headjack.App.GetCategoryMetadata(System.String)">
+            <summary>
+            Get metadata for category
+            </summary>
+            <param name="categoryId">ID of category</param>
+            <returns> <see cref="T:Headjack.App.CategoryMetadata"/> class containing metadata for category, or null when invalid category ID</returns>
+            <example> 
+            <code>
+            // return a list of all category names
+            public List&lt;String&gt; AllCategoryNames
+            {
+                List&lt;String&gt; names = new List&lt;String&gt;();
+                foreach(string id in App.GetCategories())
+                {
+                    names.Add(App.GetCategoryMetadata(id).Name);
+                }
+                return names;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetMediaFullPath(System.String)">
+            <summary>
+            Get the full local path to a downloaded media file
+            </summary>
+            <param name="Id">ID of the media item</param>
+            <returns>full local path to media item with Id (file may not exist if not downloaded), or null if Id is incorrect</returns>
+            <example> 
+            <code>
+            // Download and load a video from a specific custom variable into the Unity VideoPlayer
+            public void LoadMenuVideo(UnityEngine.Video.VideoPlayer player)
+            {
+                // get the video ID by getting it from a specific named custom variable
+                string videoId = Headjack.CustomVariables.GetVariable&lt;string&gt;("menu_video");
+                // download the video file
+                Headjack.App.DownloadSingleMedia(videoId, false, delegate (bool success, string error)
+                {
+                    // if the video successfully downloaded, load that video into the Unity VideoPlayer
+                    if (success)
+                    {
+                        player.url = Headjack.App.GetMediaFullPath(videoId);
+                    }
+                });
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Headjack.App.GetVideoStreamUrl(System.String)">
+            <summary>
+            Get the URL to a video when streaming
+            </summary>
+            <param name="VideoId">ID of the video, see <see cref="F:Headjack.App.ProjectMetadata.VideoId"/></param>
+            <returns>URL to the video stream (usually to .m3u8 HLS playlist or direct .mp4 video file). Returns null if VideoId could not be found or if video cannot be streamed.</returns>
+        </member>
+        <member name="T:Headjack.App.ByteConversionType">
+            <summary>
+            Order of magnitude of filesizes, used by <see cref="M:Headjack.App.GetProjectMetadata(System.String,Headjack.App.ByteConversionType)"/>.
+            </summary>
+            <example> 
+            <code>
+            // Set text of 3D Text Mesh to filesize (in MB) of project with projectId
+            void SetProjectSize(string projectId, UnityEngine.TextMesh projectSizeText)
+            {
+                float projectSize = Headjack.App.GetProjectMetadata(projectId, Headjack.App.ByteConversionType.Megabytes).TotalSize;
+                // set 3D text to &lt;projectSize&gt; MB (projectSize is rounded to 2 decimal points)
+                projectSizeText.text = projectSize.ToString("2n") + " MB";
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Headjack.App.RaycastSource">
+            <summary>
+            Where the raycast is coming from
+            </summary>
+        </member>
+        <member name="T:Headjack.App.VRPlatform">
+             <summary>
+             VR platform that Headjack is running on
+             </summary>
+             <remarks>
+             &gt; [!NOTE] 
+             &gt; For testing: You can change this in the Headjack settings window
+            
+             &gt; [!NOTE] 
+             &gt; Use <see cref="P:Headjack.App.CurrentPlatform"/> to get the currently loaded platform
+             </remarks>
+        </member>
+        <member name="T:Headjack.App.TrackingOrigin">
+            <summary>
+            Whether the Unity scene origin is set to VR eye level, floor level or the legacy behavior dependent on VR platform
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.ServerMetadata">
+            <summary>
+            Data class to hold server metadata including server device ID and server time offset for synchronization
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.LocalClient">
+            <summary>
+            Local cinema client, which can discover local cinema servers
+            and handles the connection(s) and messages
+            </summary>
+        </member>
+        <member name="P:Headjack.Cinema.LocalClient.Instance">
+            <summary>
+            Singleton instance of cinema client
+            </summary>
+        </member>
+        <member name="P:Headjack.Cinema.LocalClient.Servers">
+            <summary>
+            Returns first peer/server in connection list (otherwise null), useful for looping through connections
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalClient.RegisterMessageHandler(Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Register a new message handler that will serialize/deserialize network messages with a particular type number
+            </summary>
+            <param name="handler">New message handler to register with this client</param>
+        </member>
+        <member name="M:Headjack.Cinema.LocalClient.SendMessage(Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Send message to all connected servers/peers (reliable ordered messaging)
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalClient.SendMessage(LiteNetLib.NetPeer,Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Send message to specific server/peer (reliable ordered messaging)
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.ClientMetadata">
+            <summary>
+            Data class to hold client metadata including device ID and whether this device can receive commands
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.LocalServer">
+            <summary>
+            Local cinema remote control server, which handles the server discovery 
+            and handles the device connections
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.RegisterMessageHandler(Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Register a new message handler that will serialize/deserialize network messages with a particular type number
+            </summary>
+            <param name="handler">New message handler to register with this server</param>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.RegisterMessageCallback(Headjack.Cinema.Messages.MessageCallback)">
+            <summary>
+            Register a callback function that will be executed when a new message arrives
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.UnregisterMessageCallback(Headjack.Cinema.Messages.MessageCallback)">
+            <summary>
+            Unregister a registered callback function
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.SendMessage(Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Send message to all connected clients/peers (reliable ordered messaging)
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.SendMessage(LiteNetLib.NetPeer,Headjack.Cinema.Messages.MessageBase)">
+            <summary>
+            Send message to specific client/peer (reliable ordered messaging)
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.GetMaxPing">
+            <summary>
+            Get maximum latency of all connected clients (max RTT/2 in ms)
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.StopServer(System.Boolean)">
+            <summary>
+            stop all connections and stop discovery responses
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.StartServer">
+            <summary>
+            Start server and network discovery
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.LocalServer.SendSyncResponse(LiteNetLib.NetPeer,Headjack.Cinema.Messages.MessageSync)">
+            <summary>
+            Sends back a response to a sync request by including the currently timestamp (in ms) of this server
+            </summary>
+            <param name="peer">peer/client that requested the sync message</param>
+            <param name="messageSync">the data in the sync request</param>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.DefaultMessages">
+            <summary>
+            The message IDs of the default messages included with Headjack Cinema,
+            for custom message IDs, start at DefaultMessages.HighestDefault
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageBase">
+            <summary>
+            Base class that all Cinema message (client->server and server->client) derive from
+            </summary>
+        </member>
+        <member name="M:Headjack.Cinema.Messages.MessageBase.SanitizeText(System.String)">
+            <summary>
+            Ensures max text message length for cinema Messages
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageCancelDownload">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageConnect">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDeleteProject">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDeviceHealth">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDeviceInfo">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDeviceNumber">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDisconnect">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDownloadProgress">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageDownloadProject">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageLog">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageName">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessagePauseAt">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessagePlayAt">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessagePlayback">
+            <summary>
+            Video playback state (progress, player state, etc.)
+            </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessagePrepareVideo">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageSeekTo">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageSetCinema">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageShowMessage">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageShowProject">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageStatus">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageStopPlayback">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageSync">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageSynced">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.Messages.MessageViewDirection">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Headjack.Cinema.SyncedTime">
+            <summary>
+            Syncs time between this client and a server by analysing multiple sync events
+            </summary>
+        </member>
+        <member name="T:Headjack.CodecSupport">
+            <summary>
+            Check for codec support on device
+            NOTE: requires AVPro platform compatibility
+            </summary>
+        </member>
+        <member name="M:Headjack.CodecSupport.CheckCodec(Headjack.CodecSupport.Codec,Headjack.CodecSupport.CodecSupported)">
+            <summary>
+            Check device capability for playing back a specific video codec,
+            using an actual video player.
+            </summary>
+        </member>
+        <member name="M:Headjack.CodecSupport.DestroyPlayer(RenderHeads.Media.AVProVideo.MediaPlayer)">
+            stops test playback, destroys videoplayer and removes temporary gameobject
+        </member>
+        <member name="P:Headjack.CustomVariables.availableVariables">
+            		<summary>
+            		Get an array of all available variables in CustomVariables
+            		</summary>
+            		<returns>string[] containing all available variables in Custom Variables</returns>
+            		<example> 
+            		<code>
+            		void LogAllCustomVariables()
+            		{
+            			string[] allVariables = CustomVariables.availableVariables;
+            			if (allVariables == null)
+            			{
+            				Debug.Log("No Custom Variables Found!");
+            			}
+            			else
+            			{
+            				foreach(string s in allVariables)
+            				{
+            					Debug.Log("Custom Variable Found: " + s);
+            				}
+            			}
+            		}
+            		</code>
+            		</example>
+        </member>
+        <member name="M:Headjack.CustomVariables.GetReturnType(System.String)">
+            		<summary>
+            		The return type of a global variable
+            		</summary>
+            		<param name="variable">The variable to check</param>
+            		<returns>System.Type of the variable</returns>
+            		<example>
+            		<code>
+            		void LogFirstVariableType()
+            		{
+            			string[] allVariables = CustomVariables.availableVariables;
+            			if (allVariables == null)
+            			{
+            				Debug.Log("No variables found");
+            			}
+            			else
+            			{
+            				System.Type variableType = CustomVariables.GetReturnType(allVariables[0]);
+            				Debug.Log("First variable's type: " + variableType);
+            			}
+            		}
+            		</code>
+            		</example>
+        </member>
+        <member name="M:Headjack.CustomVariables.TryGetVariable``1(System.String,``0@,System.String)">
+            		<summary>
+            		Try getting a variable's value
+            		</summary>
+            		<returns>True if the variable was found and casted to the requisted type</returns>
+            		<param name="variable">The variable's name</param>
+            		<param name="result">The result will be set to this out parameter</param>
+            		<param name="projectId">(Optional) When a "per project" variable, use this parameter</param>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; result will be set to the requisted type's default value if failed
+                    </remarks>
+            		<example>
+            		<code>
+            		Color c;
+            		if (CustomVariables.TryGetVariable&lt;Color&gt;("PrimaryColor", out c))
+            		{
+            			Debug.Log("Succes!");
+            		}
+            		string s;
+            		if (CustomVariables.TryGetVariable&lt;string&gt;("App Title", out s))
+            		{
+            			Debug.Log("Succes!");
+            		}
+            		</code>
+            		</example>
+        </member>
+        <member name="M:Headjack.CustomVariables.GetVariable``1(System.String,System.String)">
+            		<summary>
+            		Get a variable's value
+            		</summary>
+            		<returns>The value if it was found and casted to the requisted type, the type's default value on fail</returns>
+            		<param name="variable">The variable to check</param>
+            		<param name="projectId">(Optional) When a "per project" variable, use this parameter</param>
+            		<remarks>
+                    &gt; [!WARNING] 
+                    &gt; Will throw an error on fail, but will return the default value so your code can continue
+                    </remarks>
+            		<example>
+            		<code>
+            		System.DateTime timeToStart = GetVariable&lt;System.DateTime&gt;("TimeToStart");
+            		string LanguageOfFirstProject = GetVariable&lt;string&gt;("Language", App.GetProjects()[0]);
+            		</code>
+            		</example>
+        </member>
+        <member name="M:Headjack.Tools.CropTexture(UnityEngine.Material,System.String,System.Single,System.Single,System.String)">
+                    <summary>
+                    Set texture into a material and crop it to a specific aspect ratio
+                    </summary>
+                    <example>
+                    <code>
+                        void ApplyTexture(string id, Material material)
+                        {
+            				CropTexture(material,id,1920,1080,null);
+                        }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.Tools.CropTexture(UnityEngine.Material,System.String,System.Single,System.String)">
+                    <summary>
+                    Set texture into a material and crop it to a specific aspect ratio
+                    </summary>
+                    <example>
+                    <code>
+                        void ApplyTexture(string id, Material material)
+                        {
+            				CropTexture(material,id,16f/9f,null);
+                        }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.Tools.GenerateVideoSphere(System.Int32)">
+                    <summary>
+                    Generate a UV Sphere
+                    </summary>
+            		<param name="Resolution">Grid resolution</param>
+                    <returns>The generated mesh</returns>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; UV Spheres have correct uv coordinates for textures 
+                    </remarks>
+        </member>
+        <member name="M:Headjack.Tools.GenerateSortedSphere(System.Int32)">
+                    <summary>
+                    Generate a Normalized Cube
+                    </summary>
+            		<param name="Resolution">Grid resolution</param>
+                    <returns>The generated mesh</returns>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; Normalized cube has more spread out vertex positions
+                    </remarks>
+        </member>
+        <member name="M:Headjack.Tools.FitTextToBounds(UnityEngine.TextMesh,System.String,UnityEngine.Vector2,UnityEngine.Vector2)">
+                    <summary>
+                    Resize a textmesh to fit certain bounds
+                    </summary>
+            		<param name="target">The target textmesh</param>
+            		<param name="newText">The text to apply</param>
+            		<param name="maxSize">Max physical size in Unity units</param>
+            		<param name="minMaxFontSize">Minimal and Maximal font size. Too high will cause aliasing, to low will cause blurriness</param>
+                    <returns>True on succes</returns>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; To apply the correct font sharpness, there is a tool window under "Headjack/Tools/Font Bitmap Scaler"
+                    </remarks>
+                    <example>
+                    <code>
+            			Textmesh mesh;
+                        void FitInSquaredMeter(string text)
+                        {
+                            FitTextToBounds(mesh,text,new Vector2(1,1),new Vector2(16,48));
+                        }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.Tools.FitTextToBounds(UnityEngine.TextMesh,System.String,UnityEngine.Vector2,System.Int32,System.Int32)">
+                    <summary>
+                    Resize a textmesh to fit certain bounds
+                    </summary>
+            		<param name="target">The target textmesh</param>
+            		<param name="newText">The text to apply</param>
+            		<param name="maxSize">Max physical size in Unity units</param>
+            		<param name="minFontSize">Minimal font size. To low will cause blurriness</param>
+            		<param name="maxFontSize">Maximal font size. Too high will cause aliasing</param>
+                    <returns>True on succes</returns>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; To apply the correct font sharpness, there is a tool window under "Headjack/Tools/Font Bitmap Scaler"
+                    </remarks>
+                    <example>
+                    <code>
+            			Textmesh mesh;
+                        void FitInSquaredMeter(string text)
+                        {
+                            FitTextToBounds(mesh,text,new Vector2(1,1),16,48);
+                        }
+                    </code>
+                    </example>
+        </member>
+        <member name="T:Headjack.Tools.BlurQuality">
+                    <summary>
+                    Blurred image's color quality
+                    </summary>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; Default is always ARGB32, only use RGB565 when encountering memory issues
+                    </remarks>
+        </member>
+        <member name="M:Headjack.Tools.BlurImage(UnityEngine.Texture,System.Boolean,Headjack.Tools.BlurQuality,System.Int32,System.Int32)">
+                    <summary>
+                    Apply Gaussian blur to a texture
+                    </summary>
+            		<param name="texture">The target texture</param>
+            		<param name="Mipmaps">Also generate mipmaps</param>
+            		<param name="Quality">Color Quality</param>
+            		<param name="newWidth">The output texture's width</param>
+            		<param name="newHeight">The output texture's height</param>
+                    <returns>A rendertexture with the image blurred</returns>
+            		<remarks>
+                    &gt; [!NOTE] 
+                    &gt; Apply a few times for a more blurred effect
+                    </remarks>
+        </member>
+        <member name="P:Headjack.Tools.VideoTexture">
+                    <summary>
+            		The active video's streaming texture
+                    </summary>
+                    <returns>The active video's streaming texture</returns>
+        </member>
+        <member name="M:Headjack.Tools.CleanUpPersistentDataPath">
+                    <summary>
+            		Remove unused Video folders in PersistentDataPath
+                    </summary>
+        </member>
+        <member name="F:Headjack.UHDSupportInfo.useConservativeSupport">
+            <summary>
+            conservative support returns "not supported" on videos over a modest resolution,
+            regardless of video source
+            </summary>
+        </member>
+        <member name="T:Headjack.UnityVideoSpatialAudioOutput">
+            <summary>
+            This is an experimental feature and only works in Windows currently
+            Audio is grabbed from the MediaPlayer and rendered via Unity
+            This allows audio to have 3D spatial control, effects applied and to be spatialised for VR
+            </summary>
+        </member>
+        <member name="T:Headjack.Utils.TimeStamp">
+            <summary>
+            Helper for Unix epoch timestamp
+            </summary>
+        </member>
+        <member name="P:Headjack.VRInput.MotionControllerShow">
+                    <summary>
+                    Show the motion controller, it will be glass/seethrough if false
+                    </summary>
+                    <example>
+                    <code>
+                    public void ShowControllerWhenHoldingTrigger()
+                    {
+                    if (VRInput.Confirm.Hold)
+                    {
+                        VRInput.MotionControllerShow=true;
+                    }else
+                    {
+                        VRInput.MotionControllerShow=false;
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VRInput.MotionControllerAvailable">
+                    <summary>
+                    Check if a motion controller is connected
+                    </summary>
+                    <returns>True if a motion controller is connected</returns>
+        </member>
+        <member name="P:Headjack.VRInput.MotionControllerColor">
+                    <summary>
+                    The color of the laser pointer, can be set or get
+                    </summary>
+            		<returns>Current color of the motion controller laser</returns>
+        </member>
+        <member name="P:Headjack.VRInput.LaserTransform">
+                    <summary>
+                    Get the transform of the motion controller laser (if available)
+                    </summary>
+                    <example>
+                    <code>
+                    public void GameObjectToLaserPosition(GameObject target)
+                    {
+                       target.transform.position = Headjack.VRInput.LaserTransform.position;
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="F:Headjack.VRInput.Confirm">
+                    <summary>
+                    VR Input button
+                    </summary>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Left mouse button - Space - Screen tap - VR Controller trigger
+                    </remarks>
+                    <example>
+                    <code>
+                    public void CheckIfClickedOnMe()
+                    {
+                    if (App.IsCrosshairHit(gameObject))
+                    {
+                        if (VRInput.Confirm.Pressed)
+                        {
+                            print("Clicked on me!");
+                        }
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="F:Headjack.VRInput.Back">
+                    <summary>
+                    VR Back button
+                    </summary>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Escape key - Android back button - VR controller back button
+                    </remarks>
+                    <example>
+                    <code>
+                    void Update()
+                    {
+            			//Destroy videoplayer when "Back button" is pressed
+                        if (VRInput.Back.Pressed)
+                        {
+                            App.DestroyVideoPlayer();
+                        }
+                    
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="F:Headjack.VRInput.MotionControllerLaser">
+                    <summary>
+                    Show the laser of the motion controller
+                    </summary>
+                    <example>
+                    <code>
+                    public void ShowLaserWhenHoldingTrigger()
+                    {
+                       if (VRInput.Confirm.Hold)
+                       {
+                           VRInput.MotionControllerLaser=true;
+                       }else
+                       {
+                           VRInput.MotionControllerLaser=false;
+                       }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="F:Headjack.VRInput.remote">
+                    <summary>
+                    Holds metadata about currently used controller (e.g. handedness)
+                    </summary>
+        </member>
+        <member name="T:Headjack.VRInput.VrButton">
+                    <summary>
+                    Button class, Confirm and Back are universal across all platforms
+                    </summary>
+        </member>
+        <member name="T:Headjack.VRInput.Remote">
+            <summary>
+            Class managing the motion controller
+            </summary>
+        </member>
+        <member name="T:Headjack.VideoPlayerBase.AudioConfig">
+                    <summary>
+                    Description of which audio tracks are playing, audio track in video file (internal) and/or external spatial audio file.
+                    Get the current audio configuration using <see cref="M:Headjack.VideoPlayerBase.GetAudioConfig"/>, set the audio configuration using <see cref="M:Headjack.VideoPlayerBase.SetAudioConfig(System.Boolean,System.Boolean)"/>.
+                    </summary>
+        </member>
+        <member name="F:Headjack.VideoPlayerBase.AudioConfig.Internal">
+                        <summary>
+                        Describes whether the audiotrack embedded in the video file is enabled
+                        </summary>
+        </member>
+        <member name="F:Headjack.VideoPlayerBase.AudioConfig.External">
+                        <summary>
+                        Describes whether the audiotrack embedded in the video file is enabled
+                        </summary>
+        </member>
+        <member name="T:Headjack.VideoPlayerBase.Status">
+            		<summary>
+            		Status codes of videoplayer returned by GetStatus()
+            		</summary>
+        </member>
+        <member name="F:Headjack.VideoPlayerBase.ProjectionMesh">
+                    <summary>
+                    The mesh that displays the video. Mesh type depends on video projection
+                    </summary>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Buffering">
+                    <summary>
+                    True if the videoplayer is buffering
+                    </summary>
+                    <returns>If the videoplayer is buffering</returns>
+                    <example>
+                    <code>
+                    //Show buffering icon when buffering
+                    void Update()
+                    {
+                    if(App.Player.Buffering)
+                    {
+            	        BufferingObject.SetActive(true);
+                    }else{
+            	        BufferingObject.SetActive(false);
+                    }
+                    }   
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Volume">
+                    <summary>
+                    Videoplayer volume
+                    </summary>
+                    <returns>The current volume of the videoplayer</returns>
+                    <example>
+                    <code>
+                    //Change volume with Arrow Keys
+                    void Update()
+                    {
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        App.Player.Volume += 0.1f;
+                        }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        App.Player.Volume -= 0.1f;
+                    }
+                    }   
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Seek">
+                    <summary>
+                    The video position (0.0 - 1.0)
+                    </summary>
+                    <returns>The current position of the video from 0.0 to 1.0</returns>
+                    <example>
+                    <code>
+                    //Change position with Arrow Keys
+                    void Update()
+                    {
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        App.Player.Seek += 0.05f;
+                        }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        App.Player.Seek -= 0.05f;
+                    }
+                    }   
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.SeekMs">
+                    <summary>
+                    The video position in milliseconds
+                    </summary>
+                    <returns>The current position of the video in milliseconds</returns>
+                    <example>
+                    <code>
+                    //Change position by 5 seconds with Arrow Keys
+                    void Update()
+                    {
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        App.Player.SeekMs += 5000;
+                        }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        App.Player.SeekMs -= 5000;
+                    }
+                    }   
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Loop">
+                    <summary>
+                    If this is a looping video
+                    </summary>
+                    <returns>If the video is currently set to loop</returns>
+                    <example>
+                    <code>
+                    public void LoopButtonSwitch()
+                    {
+                    App.Player.Loop=!App.Player.Loop;
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Mute">
+                    <summary>
+                    If this video is muted
+                    </summary>
+                    <returns>If the video is currently muted</returns>
+                    <example>
+                    <code>
+                    public void MuteButtonSwitch()
+                    {
+                    App.Player.Mute=!App.Player.Mute;
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.Duration">
+                    <summary>
+                    The total duration of the video
+                    </summary>
+                    <returns>The total duration of the video in milliseconds</returns>
+                    <example>
+                    <code>
+                    public float VideoLengthInSeconds()
+                    {
+                        return App.Player.Duration*0.001f;
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.IsPlaying">
+                    <summary>
+                    If the video is being played right now
+                    </summary>
+                    <returns>True if the video is being played right now</returns>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; False on pause
+                    </remarks>
+                    <example>
+                    <code>
+                    void Update()
+                    {
+                    //Don't show the crosshair if the video is playing
+                    if(App.Player.IsPlaying)
+                    {
+                        App.ShowCrosshair=false;
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.LastVideoTime">
+            <summary> 
+            The video timestamp of the latest command/function (e.g PauseAt or PlayAt)
+            </summary>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.LastTimestamp">
+            <summary> 
+            The realtime local timestamp of the latest command/function (e.g PauseAt or PlayAt)
+            </summary>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.IsStream">
+                    <summary>
+                    Whether the current video is streaming or not
+                    </summary>
+                    <returns>True if the video is being streamed right now</returns>
+        </member>
+        <member name="P:Headjack.VideoPlayerBase.CurrentStatus">
+                    <summary>
+                    The current playback status
+                    </summary>
+                    <returns>True if the video is being streamed right now</returns>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.SetAudioConfig(System.Boolean,System.Boolean)">
+            		<summary>
+            		Sets audio configuration, whether to play audio of video file and whether to play external (spatial) audio file
+            		</summary>
+            		<param name="internalAudio">set to true to enable video audio track</param>
+            		<param name="externalAudio">set to true to enable external (spatial) audio track</param>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Enabling both internal and external audio causes both tracks to play simultaneously
+            
+                    &gt; [!NOTE] 
+                    &gt; Enabling the external audio track without an external audio file being present in the project has no effect
+                    </remarks>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.GetAudioConfig">
+                    <summary>
+                    Gets the audio playing configuration, whether playing audio of video file (internal) and/or playing external (spatial) audio file (external)
+                    </summary>
+                    <returns><see cref="T:Headjack.VideoPlayerBase.AudioConfig"/> struct describing current audio configuration</returns>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Use <see cref="M:Headjack.VideoPlayerBase.SetAudioConfig(System.Boolean,System.Boolean)"/> to change the audio configuration
+                    </remarks>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.Play(System.String,System.Boolean,Headjack.OnEnd,System.String)">
+            <summary>
+            Play a new video
+            </summary>
+            <param name="FullPath">Full path to the mp4 file</param>
+            <param name="Stream">Whether to play local video or stream URL</param>
+            <param name="onEnd">Will be called when the video is finished</param>
+            <param name="FullPathFallback">deprecated fallback video path, now unused</param>
+            <remarks>
+            &gt; [!NOTE] 
+            &gt; onEnd overwrites current onEnd
+            
+            &gt; [!WARNING] 
+            &gt; You need a full path to the mp4 file. To play videos from the server use <see cref="M:Headjack.App.Play(System.String,System.Boolean,System.Boolean,Headjack.OnEnd)"/>
+            </remarks>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.PlayAt(System.Int64,System.Int64)">
+            <summary>
+            Start playing the currently loaded video from a specific time, starting on a specific timestamp
+            </summary>
+            <param name="playTime">Realtime (local) timestamp to start playing</param>
+            <param name="videoTime">Video timecode to start playing from</param>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.PauseAt(System.Int64)">
+            <summary>
+            Pause the video at a specific timestamp
+            NOTE: video is paused on a timecode derived from the realtime timestamp
+            </summary>
+            <param name="pauseTime">Realtime (local) timestamp to pause playback</param>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.Pause">
+                    <summary>
+                    Pause the video
+                    </summary>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Will set VideoPlayer.IsPlaying to false
+                    </remarks>
+                    <example>
+                    <code>
+                    void Update()
+                    {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        App.Player.Pause();
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.Resume">
+                    <summary>
+                    Resume the video
+                    </summary>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; Will set VideoPlayer.IsPlaying to true
+                    </remarks>
+                    <example>
+                    <code>
+                    void Update()
+                    {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        App.Player.Resume();
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.PauseResume">
+                    <summary>
+                    Switch between playing and paused
+                    </summary>
+                    <example>
+                    <code>
+                    void Update()
+                    {
+                    //Pause switch
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        App.Player.PauseResume();
+                    }
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.Clean">
+                    <summary>
+                    Clean up the video
+                    </summary>
+                    <example>
+                    <code>
+                    public void Release()
+                    {
+            			App.Player.Clean();
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.Stop">
+                    <summary>
+                    Stop the video
+                    </summary>
+                    <example>
+                    <code>
+                    public void StopVideo()
+                    {
+                    App.Player.Stop();
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.SetEyes(System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Stereoscopic settings
+            </summary>
+            <param name="InputIsStereo">Is the video stereoscopic</param>
+            <param name="OutputIsStereo">Display in stereoscopic</param>
+            <param name="Projection">projection keyword (e.g. EQUIRECT or FLAT)</param>
+            <remarks>
+            &gt; [!WARNING] 
+            &gt; This will be automatically set with <see cref="M:Headjack.App.Play(System.String,System.Boolean,System.Boolean,Headjack.OnEnd)"/>. Use <see cref="M:Headjack.VideoPlayerBase.SetStereoscopicRendering(System.Boolean)"/> to switch enable/disable the stereoscopic rendering
+            </remarks>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.SetStereoscopicRendering(System.Boolean)">
+                    <summary>
+                    Stereoscopic video rendering
+                    </summary>
+                    <param name="Stereoscopic">Render stereoscopic</param>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; You can use this to disable the stereo effect if you want to display an interface
+                    </remarks>
+                    <example>
+                    <code>
+                    public void SwitchToMono()
+                    {
+                        App.Player.SetStereoscopicRendering(false);
+                    }
+                    </code>
+                    </example>
+        </member>
+        <member name="M:Headjack.VideoPlayerBase.FocusAt(System.Int32)">
+                    <summary>
+                    Focus at a certain direction in the video
+                    </summary>
+                    <param name="Degrees">Direction in degrees</param>
+                    <remarks>
+                    &gt; [!NOTE] 
+                    &gt; You can use this to disable the stereo effect if you want to display an interface
+                    </remarks>
+        </member>
+        <member name="F:Headjack.VideoPlayerBase.subtitles">
+            <summary>
+            Subtitle class
+            </summary>
+        </member>
+        <member name="T:Headjack.VideoPlayer_AVP">
+            <summary>
+            AVPro integration for Headjack video player
+            </summary>
+        </member>
+        <member name="T:Headjack.VideoPlayer_EXO.ApplicationStateCallback">
+            Workaround for Oculus headsets killing XR display subsystem (which resets render thread on resume) 
+            before being able to properly dispose of native video texture. So hooking into native PrePaused event.
+        </member>
+        <member name="M:Headjack.VideoPlayer_EXO.GetActivity">
+            Returns the Android Activity used by the Unity device player. The caller is
+            responsible for memory-managing the returned AndroidJavaObject.
+        </member>
+        <member name="M:Headjack.VideoPlayer_EXO.GetApplicationContext(UnityEngine.AndroidJavaObject)">
+            Returns the application context of the current Android Activity.
+        </member>
+    </members>
+</doc>
